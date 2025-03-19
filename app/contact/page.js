@@ -1,31 +1,11 @@
 "use client"; // Ensure this file is treated as a client-side component
 
-import 'leaflet/dist/leaflet.css';
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-
 import { Mail, Phone, Clock, MessageCircle } from "lucide-react"; // Icons for a clean UI
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Head from 'next/head'; // Add this import
 
-// 52J Car Hire location data
-const location = {
-  lat: 53.0321564,  // Example latitude (replace with actual coordinates)
-  lng: -2.171200,  // Example longitude (replace with actual coordinates)
-  popUp: "52J Car Hire: Main Office Location",
-};
-
 const Contact = () => {
-  // Set custom marker icon (this will fix the issue of "marker" being displayed)
-  const customIcon = new L.Icon({
-    iconUrl: '/pin.png', // Make sure you have the correct icon URL here
-    iconSize: [32, 42], // Size of the icon
-    iconAnchor: [16, 32], // Point of the icon that will correspond to the marker's position
-    popupAnchor: [0, -32], // Point from which the popup will open relative to the icon
-  });
-
   return (
     <>
       <Head>
@@ -111,39 +91,12 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="bg-white py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Our Location</h2>
-          <p className="text-lg text-gray-700 text-center mb-8">
-            Find us at the location below or get directions.
-          </p>
-
-          <div className="relative w-full h-[400px] max-w-screen-lg mx-auto mb-8 rounded-lg shadow-lg overflow-hidden z-0">
-            <MapContainer
-              center={[location.lat, location.lng]}
-              zoom={15}
-              scrollWheelZoom={false}
-              className="w-full h-full rounded-lg shadow-md z-0"
-            >
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              {/* Use the custom marker icon */}
-              <Marker position={[location.lat, location.lng]} icon={customIcon}>
-                <Popup>{location.popUp}</Popup>
-              </Marker>
-            </MapContainer>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </>
   );
 };
 
 export default Contact;
+
 
 
