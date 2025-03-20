@@ -19,7 +19,7 @@ const Contact = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-red-500 to-blue-500 text-white py-20">
+      <section className=" relative bg-gradient-to-r from-red-500 to-blue-500 text-white py-20 z-10">
         <div className="max-w-6xl mx-auto text-center px-6">
           <h1 className="text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl mb-8">
